@@ -31,16 +31,16 @@ adb shell 'am start -a android.intent.action.VIEW -c android.intent.category.BRO
 2. And Home Screen will opens.
 3. Now lets open /movieDetailsScreen/594767 to show the details of a movie called [Shazam! Fury of the Gods](https://api.themoviedb.org/3/movie/594767?api_key=c1ae2892932e63a1e39779087bb21e85&language=en-US/):
 
-<img src="assets/gifs/deep_link_movie_details.gif" width="340" height="560"/>
+<img src="assets/gifs/deep_link_movie_details.gif" />
 
 4. Now let's try again to open /movieDetailsScreen/33562 which is a move not found in data base (or if user tried to open any other screen not supported by the app) that what will be showen:
 
-<img src="assets/gifs/deep_link_unkown_movie.gif" width="340" height="560"/>
+<img src="assets/gifs/deep_link_unkown_movie.gif"/>
 
 ## Logging messages in debug mode only:
 > Both API headers responses and Firebase notifications messages will be logged in debug mode like below:
 
-<img src="assets/gifs/logging_api_headers.gif" width="340" height="560"/>
+<img src="assets/gifs/logging_api_headers.gif" />
 
 ## Firebase cloud notifications:
 > Implemented both in Background as well as in Foreground notifications:
