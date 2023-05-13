@@ -39,7 +39,7 @@ adb shell 'am start -a android.intent.action.VIEW -c android.intent.category.BRO
 
 <img src="assets/gifs/deep_link_unkown_movie.gif"/>
 
-## Logging messages in debug mode only:
+## Logging in debug mode only:
 > Both API headers responses and Firebase notifications messages will be logged in debug mode like below:
 
 <img src="assets/gifs/logging_api_headers.gif" />
