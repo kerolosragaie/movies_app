@@ -1,3 +1,4 @@
+import 'package:appgain_task_movies/core/constants/styles.dart';
 import 'package:appgain_task_movies/features/home/data/models/movie_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -60,8 +61,7 @@ class MovieItem extends StatelessWidget {
                         child: Text(
                           movieModel.title ?? "Title",
                           textAlign: TextAlign.start,
-                          style: const TextStyle(
-                            fontSize: 15,
+                          style: Styles.textStyle15.copyWith(
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
@@ -84,8 +84,7 @@ class MovieItem extends StatelessWidget {
                               Text(
                                 ((movieModel.voteAverage ?? 80) / 2)
                                     .toStringAsFixed(1),
-                                style: const TextStyle(
-                                  fontSize: 16.0,
+                                style: Styles.textStyle16.copyWith(
                                   fontWeight: FontWeight.w500,
                                   letterSpacing: 1.2,
                                 ),
@@ -104,7 +103,7 @@ class MovieItem extends StatelessWidget {
                             ),
                             child: Text(
                               "${movieModel.releaseDate ?? 2022}",
-                              style: const TextStyle(
+                              style: Styles.textStyle16.copyWith(
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -116,10 +115,7 @@ class MovieItem extends StatelessWidget {
                       Text(
                         movieModel.overview ?? "Dummy description",
                         textAlign: TextAlign.start,
-                        style: const TextStyle(
-                          fontSize: 12.5,
-                          color: Colors.white,
-                        ),
+                        style: Styles.textStyle12.copyWith(color: Colors.white),
                         maxLines: 4,
                         overflow: TextOverflow.ellipsis,
                       ),
