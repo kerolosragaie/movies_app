@@ -1,5 +1,7 @@
-# Movies App
+<h1 align="center">Movies App</h1>
 
+[![Linkedin: kerollosragaie](https://img.shields.io/badge/-kerollosragaie-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/kerollos-ragaie-youssef-b9529aa6/)](https://www.linkedin.com/in/kerollos-ragaie/)
+[![GitHub Kerollos Ragaie](https://img.shields.io/github/followers/kerolosragaie?label=follow&style=social)](https://github.com/kerolosragaie)
 > A flutter app uses, Deep links locally hosted without using firebase or any plugins, Firebase cloud notifications and logging API headers responses and Firebase notifications in debug mode only.
 
 ## Used API
@@ -49,5 +51,6 @@ adb shell 'am start -a android.intent.action.VIEW -c android.intent.category.BRO
 
 <img src="assets/gifs/notifications_2.gif" width="340" height="560"/>
 
-# Thank you :)
+<h2 align="center">Thank you :)</h2>
+
 
