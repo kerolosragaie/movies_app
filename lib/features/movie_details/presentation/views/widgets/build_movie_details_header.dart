@@ -1,8 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../../core/constants/api_constance.dart';
-import '../../data/models/movie_details_model/movie_details_model.dart';
+import '../../../data/models/movie_details_model/movie_details_model.dart';
 
 class BuildMovieDetailsHeader extends StatelessWidget {
   final MovieDetailsModel movieDetailsModel;

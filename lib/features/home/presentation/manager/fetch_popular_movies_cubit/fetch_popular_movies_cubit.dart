@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../data/models/movie_model.dart';
-import '../../data/repositories/home_repository.dart';
+import '../../../data/models/movie_model.dart';
+import '../../../data/repositories/home_repository.dart';
 
 part 'fetch_popular_movies_state.dart';
 

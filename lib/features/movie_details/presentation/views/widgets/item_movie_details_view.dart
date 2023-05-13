@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../data/models/movie_details_model/movie_details_model.dart';
+import '../../../data/models/movie_details_model/movie_details_model.dart';
 import 'build_movie_details_body.dart';
 import 'build_movie_details_header.dart';
 

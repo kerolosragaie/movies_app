@@ -1,8 +1,8 @@
 import 'package:appgain_task_movies/core/constants/routes.dart';
-import 'package:appgain_task_movies/features/unkown_screen_view/presentation/views/unkown_screen_view.dart';
+import 'package:appgain_task_movies/features/unkown_screen/presentation/views/unkown_screen_view.dart';
 import 'package:flutter/material.dart';
 import '../features/home/presentation/views/home_view.dart';
-import '../features/home/presentation/views/movie_details_view.dart';
+import '../features/movie_details/presentation/views/movie_details_view.dart';
 import '../features/splash/presentation/views/splash_view.dart';
 
 class AppRouter {

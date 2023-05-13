@@ -1,4 +1,4 @@
-import 'package:appgain_task_movies/features/unkown_screen_view/presentation/views/widgets/appbar_unkown_screen_view.dart';
+import 'package:appgain_task_movies/features/unkown_screen/presentation/views/widgets/appbar_unkown_screen_view.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/body_unkown_screen_view.dart';

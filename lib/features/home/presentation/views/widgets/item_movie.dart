@@ -1,4 +1,4 @@
-import 'package:appgain_task_movies/features/home/presentation/data/models/movie_model.dart';
+import 'package:appgain_task_movies/features/home/data/models/movie_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';

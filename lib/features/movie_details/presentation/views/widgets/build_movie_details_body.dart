@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../data/models/movie_details_model/genre.dart';
-import '../../data/models/movie_details_model/movie_details_model.dart';
+import '../../../data/models/movie_details_model/genre.dart';
+import '../../../data/models/movie_details_model/movie_details_model.dart';
 
 class BuildMovieDetailsBody extends StatelessWidget {
   final MovieDetailsModel movieDetailsModel;

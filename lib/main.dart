@@ -6,7 +6,7 @@ import 'core/constants/routes.dart';
 import 'core/utils/services/firebase_notifications_services.dart';
 import 'core/utils/services/navigation_service.dart';
 import 'core/utils/services/service_locater.dart' as di;
-import 'features/home/presentation/manager/fetch_movie_cubit/fetch_movie_cubit.dart';
+import 'features/movie_details/presentation/manager/fetch_movie_cubit/fetch_movie_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

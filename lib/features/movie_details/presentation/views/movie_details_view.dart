@@ -1,9 +1,8 @@
-import 'package:appgain_task_movies/features/home/presentation/views/widgets/item_movie_details_view.dart';
-import 'package:appgain_task_movies/features/unkown_screen_view/presentation/views/unkown_screen_view.dart';
+import 'package:appgain_task_movies/features/movie_details/presentation/views/widgets/item_movie_details_view.dart';
+import 'package:appgain_task_movies/features/unkown_screen/presentation/views/unkown_screen_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../core/utils/widgets/widget_custom_error.dart';
 import '../../../../core/utils/widgets/widget_loading_indicator.dart';
 import '../manager/fetch_movie_cubit/fetch_movie_cubit.dart';
@@ -23,7 +22,7 @@ class _MovieDetailsViewState extends State<MovieDetailsView> {
   @override
   void initState() {
     super.initState();
-    onInitScreen();
+    fetchMovieCubitOnInit();
   }
 
   @override
@@ -48,7 +47,7 @@ class _MovieDetailsViewState extends State<MovieDetailsView> {
     );
   }
 
-  void onInitScreen() {
+  void fetchMovieCubitOnInit() {
     SchedulerBinding.instance.addPostFrameCallback((_) {
       try {
         BlocProvider.of<FetchMovieCubit>(context)

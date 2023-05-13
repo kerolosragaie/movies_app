@@ -3,7 +3,7 @@ import 'package:appgain_task_movies/features/home/presentation/manager/fetch_pop
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/widgets/widget_custom_error.dart';
-import '../../data/models/movie_model.dart';
+import '../../../data/models/movie_model.dart';
 import 'item_movie.dart';
 
 class PopularMoviesListView extends StatelessWidget {
