@@ -4,6 +4,10 @@
 [![GitHub Kerollos Ragaie](https://img.shields.io/github/followers/kerolosragaie?label=follow&style=social)](https://github.com/kerolosragaie)
 > A flutter app uses, Deep links locally hosted without using firebase or any plugins, Firebase cloud notifications and logging API headers responses and Firebase notifications in debug mode only.
 
+## APKs
+>Release apk and debug apk will be found at:
+[APKs link](https://github.com/kerolosragaie/movies_app/tree/master/assets/apks)
+
 ## Used API
 [The Movie DB](https://developers.themoviedb.org/3/movies)
 
