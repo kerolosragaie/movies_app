@@ -1,6 +1,6 @@
 # Movies App
 
-> A flutter app uses, Deep links locally hosted without using firebase or any plugins, Firebase cloud notifications and logging API headers responses and Firebase message in debug mode only.
+> A flutter app uses, Deep links locally hosted without using firebase or any plugins, Firebase cloud notifications and logging API headers responses and Firebase notifications in debug mode only.
 
 ## Used API
 [The Movie DB](https://developers.themoviedb.org/3/movies)
