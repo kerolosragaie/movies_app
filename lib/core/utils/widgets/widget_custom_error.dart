@@ -1,16 +1,19 @@
 import 'package:appgain_task_movies/core/constants/routes.dart';
 import 'package:flutter/material.dart';
 import '../../constants/styles.dart';
+import '../functions/restart_app.dart';
 
 class CustomErrorWidget extends StatelessWidget {
   final String? title;
   final String errorMessage;
   final bool isSliverWidget;
+  final bool isUsingDeepLink;
   const CustomErrorWidget({
     Key? key,
     required this.errorMessage,
     this.title,
     this.isSliverWidget = false,
+    this.isUsingDeepLink = false,
   }) : super(key: key);
 
   @override
@@ -63,7 +66,11 @@ class CustomErrorWidget extends StatelessWidget {
                   style:
                       ElevatedButton.styleFrom(backgroundColor: Colors.black),
                   onPressed: () {
-                    Navigator.of(context).pushReplacementNamed(kHomeScreen);
+                    if (isUsingDeepLink) {
+                      RestartApp.restart(webOrigin: "/");
+                    } else {
+                      Navigator.of(context).pushReplacementNamed(kHomeScreen);
+                    }
                   },
                   child: const Text('Go back!'),
                 ),

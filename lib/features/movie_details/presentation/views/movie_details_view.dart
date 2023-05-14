@@ -37,6 +37,7 @@ class _MovieDetailsViewState extends State<MovieDetailsView> {
           } else if (state is FetchMovieFailure) {
             return CustomErrorWidget(
               errorMessage: state.errorMessage,
+              isUsingDeepLink: widget.launchedFromDL,
             );
           } else if (state is FetchMovieLoaded) {
             return MovieDetailsViewItem(
