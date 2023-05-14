@@ -1,16 +1,16 @@
 import 'package:appgain_task_movies/core/constants/routes.dart';
 import 'package:appgain_task_movies/features/unkown_screen/presentation/views/unkown_screen_view.dart';
 import 'package:flutter/material.dart';
-import '../features/home/presentation/views/home_view.dart';
-import '../features/movie_details/presentation/views/movie_details_view.dart';
-import '../features/splash/presentation/views/splash_view.dart';
+import '../../../features/home/presentation/views/home_view.dart';
+import '../../../features/movie_details/presentation/views/movie_details_view.dart';
+import '../../../features/splash/presentation/views/splash_view.dart';
 
 class AppRouter {
   static Map<String, Widget Function(BuildContext)> initalRoutes() {
     return {
       kSplashScreen: (context) => const SplashView(),
       kHomeScreen: (context) => const HomeView(),
-      "/movieDetailsScreen/:movieId": (context) => const MovieDetailsView(),
+      kMovieDetailsScreen: (context) => const MovieDetailsView(),
     };
   }
 
@@ -33,5 +33,21 @@ class AppRouter {
     }
 
     return MaterialPageRoute(builder: (context) => const ScreenNotFoundView());
+  }
+
+  static void getDeepLinkRoute(BuildContext context, String url) {
+    var uri = Uri.parse(url);
+    if (uri.pathSegments.length == 2 &&
+        uri.pathSegments.first == 'movieDetailsScreen') {
+      String id = uri.pathSegments[1];
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => MovieDetailsView(movieId: id)));
+    } else if (uri.pathSegments.length == 2 &&
+        uri.pathSegments.first == 'homeScreen') {
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const HomeView()));
+    }
+    Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const ScreenNotFoundView()));
   }
 }

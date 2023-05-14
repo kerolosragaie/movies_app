@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/constants/styles.dart';
+import '../../../../home/presentation/views/home_view_build.dart';
 
 class UnkownScreenViewBody extends StatelessWidget {
   const UnkownScreenViewBody({super.key});
@@ -20,7 +21,9 @@ class UnkownScreenViewBody extends StatelessWidget {
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => const HomeViewBuild()),
+              );
             },
             child: const Text('Go back!'),
           ),

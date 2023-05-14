@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import '../services/service_locater.dart';
@@ -25,6 +27,16 @@ class DevelopModes {
         ),
       );
       sl.registerLazySingleton<Dio>(() => dio);
+    }
+  }
+
+  static void setupDeepLinkLogger(String? url) {
+    if (kDebugMode) {
+      if (url != null) {
+        log("URL: $url");
+      } else {
+        log("No deep link used.");
+      }
     }
   }
 }

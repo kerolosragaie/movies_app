@@ -5,6 +5,7 @@ import 'package:appgain_task_movies/features/movie_details/data/repository/movie
 import 'package:get_it/get_it.dart';
 import '../../../features/home/data/repositories/home_repository_impl.dart';
 import '../functions/develop_modes.dart';
+import '../router/deep_link_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -17,6 +18,7 @@ Future<void> setupServiceLocater() async {
 
   //! Core
   sl.registerLazySingleton<ApiService>(() => ApiService(sl()));
+  sl.registerLazySingleton<DeepLinkBloc>(() => DeepLinkBloc());
 
   // !External (for packages)
   DevelopModes.setupDebugMode();

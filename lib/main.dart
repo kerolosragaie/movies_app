@@ -1,7 +1,9 @@
+import 'package:appgain_task_movies/core/utils/router/deep_link_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appgain_task_movies/features/home/presentation/manager/fetch_popular_movies_cubit/fetch_popular_movies_cubit.dart';
-import 'core/app_router.dart';
+import 'package:provider/provider.dart';
+import 'core/utils/router/app_router.dart';
 import 'core/constants/routes.dart';
 import 'core/utils/services/firebase_notifications_services.dart';
 import 'core/utils/services/navigation_service.dart';
@@ -32,14 +34,18 @@ class MyApp extends StatelessWidget {
           create: (context) => FetchMovieCubit(di.sl()),
         ),
       ],
-      child: MaterialApp(
-        navigatorKey: NavigationService.navigatorKey,
-        title: 'Movies App',
-        theme: ThemeData.dark(),
-        debugShowCheckedModeBanner: false,
-        initialRoute: kSplashScreen,
-        onGenerateRoute: AppRouter.generateRoute,
-        routes: AppRouter.initalRoutes(),
+      child: Provider<DeepLinkBloc>(
+        create: (context) => di.sl<DeepLinkBloc>(),
+        dispose: (context, bloc) => di.sl<DeepLinkBloc>().dispose(),
+        child: MaterialApp(
+          navigatorKey: NavigationService.navigatorKey,
+          title: 'Movies App',
+          theme: ThemeData.dark(),
+          debugShowCheckedModeBanner: false,
+          initialRoute: kSplashScreen,
+          onGenerateRoute: AppRouter.generateRoute,
+          routes: AppRouter.initalRoutes(),
+        ),
       ),
     );
   }
