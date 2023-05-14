@@ -1,5 +1,6 @@
 import 'package:appgain_task_movies/core/utils/router/deep_link_bloc.dart';
-import 'package:appgain_task_movies/features/home/presentation/views/home_view_build.dart';
+import 'package:appgain_task_movies/features/home/presentation/views/widgets/appbar_home_view.dart';
+import 'package:appgain_task_movies/features/home/presentation/views/widgets/body_home_view.dart';
 import 'package:appgain_task_movies/features/unkown_screen/presentation/views/unkown_screen_view.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/functions/develop_modes.dart';
@@ -16,7 +17,7 @@ class HomeView extends StatelessWidget {
       builder: (context, snapshot) {
         DevelopModes.setupDeepLinkLogger(snapshot.data);
         if (!snapshot.hasData) {
-          return const HomeViewBuild();
+          return _buildHomeView();
         } else {
           return _setupDeepLinkRoutes(snapshot);
         }
@@ -33,10 +34,16 @@ class HomeView extends StatelessWidget {
         movieId: id,
         launchedFromDL: true,
       );
-      //TODO take here
     } else if (uri.pathSegments.first == 'homeScreen') {
-      return const HomeViewBuild();
+      return _buildHomeView();
     }
     return const ScreenNotFoundView();
+  }
+
+  Widget _buildHomeView() {
+    return const Scaffold(
+      appBar: AppbarHomeView(),
+      body: HomeViewBody(),
+    );
   }
 }
