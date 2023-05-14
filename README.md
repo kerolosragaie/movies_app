@@ -22,14 +22,13 @@
 ## Deep links:
 > I don't have a website or any url to host, so the best solution is to implment deep links locally on the device using ADB (Android Debug Bridge) using any local domain (http://kerollos.com).
 
-1. "http://kerollos.com/" => Runs splash screen 
 1. "http://kerollos.com/homeScreen" => Runs home screen
 1. "http://kerollos.com/movieDetailsScreen/:movieId" => Runs movie details screen to show the data for movie with id (:moviedId)
 
 ### Let's test deep links
-> For sure if tryed to launch the app from any browser on the device it will not open because 'http://kerollos.com' is a local host, so the best solution to test if deep links works or no, I will call ADB and give it the local host 'http://kerollos.com' and my app package name 'com.kerollos.appgain_task_movies' like below:
+> For sure if tryed to launch the app from any browser on the device it will not open because 'http://kerollos.com' is a local host (dummy url), so the best solution to test if deep links works or no, I will call ADB and give it the local host 'http://kerollos.com' and my app package name 'com.kerollos.appgain_task_movies' like below:
 
-1. Download and run the project and in the terminal type below line and press enter:
+1. Download and run (or install the app) the project and in the terminal type below line and press enter:
 
 ```Dart
 adb shell 'am start -a android.intent.action.VIEW -c android.intent.category.BROWSABLE -d "http://kerollos.com/homeScreen' com.kerollos.appgain_task_movies 
@@ -43,8 +42,15 @@ adb shell 'am start -a android.intent.action.VIEW -c android.intent.category.BRO
 
 <img src="assets/gifs/deep_link_unkown_movie.gif"/>
 
+### There is a another better way to implement deep links using flutter than using Kotlin:
+> Just un comment below line in 'AndroidManifest.xml':
+
+```
+<meta-data android:name="flutter_deeplinking_enabled" android:value="true" />
+```
+
 ## Logging in debug mode only:
-> Both API headers responses and Firebase notifications messages will be logged in debug mode like below:
+> Both API headers responses and opened deep links will be logged in debug mode like below:
 
 <img src="assets/gifs/logging_api_headers.gif" />
 
