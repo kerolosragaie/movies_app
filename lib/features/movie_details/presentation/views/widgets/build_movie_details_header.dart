@@ -1,14 +1,17 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/constants/api_constance.dart';
+import '../../../../../core/utils/functions/restart_app.dart';
 import '../../../data/models/movie_details_model/movie_details_model.dart';
 
 class BuildMovieDetailsHeader extends StatelessWidget {
   final MovieDetailsModel movieDetailsModel;
+  final bool launchedFromDL;
 
   const BuildMovieDetailsHeader({
     super.key,
     required this.movieDetailsModel,
+    required this.launchedFromDL,
   });
 
   @override
@@ -30,7 +33,7 @@ class BuildMovieDetailsHeader extends StatelessWidget {
                 ),
               ),
               child: Hero(
-                tag: movieDetailsModel.id ?? "tag",
+                tag: launchedFromDL ? "tag" : movieDetailsModel.id ?? "tag",
                 child: CachedNetworkImage(
                   imageUrl:
                       ApiConstance.imageUrl(movieDetailsModel.posterPath!),
@@ -45,7 +48,7 @@ class BuildMovieDetailsHeader extends StatelessWidget {
               left: 15,
               child: GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pop();
+                  _isLaunchedFromDL(context);
                 },
                 child: Container(
                   padding: const EdgeInsets.all(10),
@@ -62,5 +65,12 @@ class BuildMovieDetailsHeader extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void _isLaunchedFromDL(BuildContext context) {
+    if (launchedFromDL) {
+      RestartApp.restart(webOrigin: "/");
+    }
+    Navigator.of(context).pop();
   }
 }

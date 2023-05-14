@@ -7,10 +7,10 @@ abstract class Bloc {
 }
 
 class DeepLinkBloc extends Bloc {
-  //Event Channel creation
+  //Event Channel
   static const stream = EventChannel('http.kerollos.com/events');
 
-  //Method channel creation
+  //Method channel
   static const platform = MethodChannel('http.kerollos.com/channel');
 
   final StreamController<String> _stateController = StreamController();
@@ -28,16 +28,11 @@ class DeepLinkBloc extends Bloc {
   }
 
   void onRedirected(String? uri) {
-    // Here can be any uri analysis, checking tokens etc, if it’s necessary
+    //------> Here can be any uri analysis, checking tokens etc, if it’s necessary
     // Throw deep link URI into the BloC's stream
     if (uri != null) {
       stateSink.add(uri);
     }
-  }
-
-  @override
-  void dispose() {
-    _stateController.close();
   }
 
   Future<String?> startUri() async {
@@ -46,5 +41,10 @@ class DeepLinkBloc extends Bloc {
     } on PlatformException catch (e) {
       return "Failed to Invoke: '${e.message}'.";
     }
+  }
+
+  @override
+  void dispose() {
+    _stateController.close();
   }
 }

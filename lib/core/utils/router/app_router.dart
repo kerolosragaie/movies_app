@@ -10,7 +10,9 @@ class AppRouter {
     return {
       kSplashScreen: (context) => const SplashView(),
       kHomeScreen: (context) => const HomeView(),
-      kMovieDetailsScreen: (context) => const MovieDetailsView(),
+      kMovieDetailsScreen: (context) => const MovieDetailsView(
+            launchedFromDL: false,
+          ),
     };
   }
 
@@ -29,25 +31,12 @@ class AppRouter {
         uri.pathSegments.first == 'movieDetailsScreen') {
       String id = uri.pathSegments[1];
       return MaterialPageRoute(
-          builder: (context) => MovieDetailsView(movieId: id));
+          builder: (context) => MovieDetailsView(
+                movieId: id,
+                launchedFromDL: false,
+              ));
     }
 
     return MaterialPageRoute(builder: (context) => const ScreenNotFoundView());
-  }
-
-  static void getDeepLinkRoute(BuildContext context, String url) {
-    var uri = Uri.parse(url);
-    if (uri.pathSegments.length == 2 &&
-        uri.pathSegments.first == 'movieDetailsScreen') {
-      String id = uri.pathSegments[1];
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => MovieDetailsView(movieId: id)));
-    } else if (uri.pathSegments.length == 2 &&
-        uri.pathSegments.first == 'homeScreen') {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const HomeView()));
-    }
-    Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const ScreenNotFoundView()));
   }
 }

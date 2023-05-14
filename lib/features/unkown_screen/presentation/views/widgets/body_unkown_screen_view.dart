@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/constants/styles.dart';
-import '../../../../home/presentation/views/home_view_build.dart';
+import '../../../../../core/utils/functions/restart_app.dart';
 
 class UnkownScreenViewBody extends StatelessWidget {
   const UnkownScreenViewBody({super.key});
@@ -13,17 +13,15 @@ class UnkownScreenViewBody extends StatelessWidget {
         children: [
           Text(
             'Page not found!',
-            style: Styles.textStyle20,
+            style: Styles.textStyle26,
           ),
           const SizedBox(
-            height: 50,
+            height: 40,
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
             onPressed: () {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => const HomeViewBuild()),
-              );
+              RestartApp.restart(webOrigin: "/");
             },
             child: const Text('Go back!'),
           ),

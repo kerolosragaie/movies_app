@@ -9,9 +9,11 @@ import '../manager/fetch_movie_cubit/fetch_movie_cubit.dart';
 
 class MovieDetailsView extends StatefulWidget {
   final String? movieId;
+  final bool launchedFromDL;
   const MovieDetailsView({
     super.key,
     this.movieId,
+    required this.launchedFromDL,
   });
 
   @override
@@ -39,6 +41,7 @@ class _MovieDetailsViewState extends State<MovieDetailsView> {
           } else if (state is FetchMovieLoaded) {
             return MovieDetailsViewItem(
               movieDetailsModel: state.moveDetailsModel,
+              launchedFromDL: widget.launchedFromDL,
             );
           }
           return const LoadingIndicatorWidget();

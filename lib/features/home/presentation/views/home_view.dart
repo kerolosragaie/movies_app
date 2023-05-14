@@ -12,23 +12,31 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<String>(
-        stream: di.sl<DeepLinkBloc>().state,
-        builder: (context, snapshot) {
-          DevelopModes.setupDeepLinkLogger(snapshot.data);
-          if (!snapshot.hasData) {
-            return const HomeViewBuild();
-          } else {
-            var uri = Uri.parse(snapshot.data!);
-            if (uri.pathSegments.length == 2 &&
-                uri.pathSegments.first == 'movieDetailsScreen') {
-              String id = uri.pathSegments[1];
-              return MovieDetailsView(movieId: id);
-            } else if (uri.pathSegments.length == 1 &&
-                uri.pathSegments.first == 'homeScreen') {
-              return const HomeViewBuild();
-            }
-            return const ScreenNotFoundView();
-          }
-        });
+      stream: di.sl<DeepLinkBloc>().state,
+      builder: (context, snapshot) {
+        DevelopModes.setupDeepLinkLogger(snapshot.data);
+        if (!snapshot.hasData) {
+          return const HomeViewBuild();
+        } else {
+          return _setupDeepLinkRoutes(snapshot);
+        }
+      },
+    );
+  }
+
+  Widget _setupDeepLinkRoutes(AsyncSnapshot<String> snapshot) {
+    var uri = Uri.parse(snapshot.data!);
+    if (uri.pathSegments.length == 2 &&
+        uri.pathSegments.first == 'movieDetailsScreen') {
+      String id = uri.pathSegments[1];
+      return MovieDetailsView(
+        movieId: id,
+        launchedFromDL: true,
+      );
+      //TODO take here
+    } else if (uri.pathSegments.first == 'homeScreen') {
+      return const HomeViewBuild();
+    }
+    return const ScreenNotFoundView();
   }
 }

@@ -32,11 +32,7 @@ class DevelopModes {
 
   static void setupDeepLinkLogger(String? url) {
     if (kDebugMode) {
-      if (url != null) {
-        log("URL: $url");
-      } else {
-        log("No deep link used.");
-      }
+      log("URL: ${url ?? "not found."}");
     }
   }
 }
