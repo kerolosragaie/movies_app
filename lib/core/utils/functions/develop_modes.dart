@@ -1,5 +1,6 @@
 import 'dart:developer';
-
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import '../services/service_locater.dart';
@@ -32,7 +33,18 @@ class DevelopModes {
 
   static void setupDeepLinkLogger(String? url) {
     if (kDebugMode) {
-      log("URL: ${url ?? "not found."}");
+      if (url != null) {
+        Fluttertoast.showToast(
+          msg: "Launched URL: $url",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 2,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0,
+        );
+      }
+      log("Launched URL: ${url ?? "not found."}");
     }
   }
 }
