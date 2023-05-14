@@ -38,7 +38,7 @@ adb shell 'am start -a android.intent.action.VIEW -c android.intent.category.BRO
 
 <img src="assets/gifs/deep_link_movie_details.gif" />
 
-4. Now let's try again to open /movieDetailsScreen/33562 which is a move not found in data base (or if user tried to open any other screen not supported by the app) that what will be showen:
+4. Now let's try again to open /movieDetailsScreen/33562 which is a movie not found in data base (or if user tried to open any other screen not supported by the app) that what will be showen:
 
 <img src="assets/gifs/deep_link_unkown_movie.gif"/>
 
