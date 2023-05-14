@@ -20,7 +20,8 @@
 <img src="assets/gifs/overview.gif" width="340" height="560"/>
 
 ## Deep links:
-> I don't have a website or any url to host, so the best solution is to implment deep links locally on the device using ADB (Android Debug Bridge) using any local domain (http://kerollos.com).
+#### Note: Unfortunately I don't have any domain (website) to host.
+> So the best solution is to implment deep links locally on the device using ADB (Android Debug Bridge) using any local domain (http://kerollos.com).
 
 1. "http://kerollos.com/homeScreen" => Runs home screen
 1. "http://kerollos.com/movieDetailsScreen/:movieId" => Runs movie details screen to show the data for movie with id (:moviedId)
@@ -28,7 +29,7 @@
 ### Let's test deep links
 > For sure if tryed to launch the app from any browser on the device it will not open because 'http://kerollos.com' is a local host (dummy url), so the best solution to test if deep links works or no, I will call ADB and give it the local host 'http://kerollos.com' and my app package name 'com.kerollos.appgain_task_movies' like below:
 
-1. Download and run (or install the app) the project and in the terminal type below line and press enter:
+1. Download and run the project using VS code (or Android Studio) and in the terminal type below line and press enter:
 
 ```Dart
 adb shell 'am start -a android.intent.action.VIEW -c android.intent.category.BROWSABLE -d "http://kerollos.com/homeScreen' com.kerollos.appgain_task_movies 
